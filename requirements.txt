@@ -3,3 +3,5 @@ numpy
 pandas
 matplotlib
 yfinance
+python-dotenv
+google-generativeai

@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Analyzer</title>
+    <title>Stock Recommendations</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Stock Recommendations</h1>
+    <form id="stock-form" method="post" action="/search">
+        <input type="text" name="stock_symbol" id="stock_symbol" placeholder="Enter stock symbol">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for recommendation in recommendations %}
+            <li>
+                <strong>{{ recommendation.ticker }}:</strong> {{ recommendation.recommendation }} (Sharpe Ratio: {{ recommendation.sharpe_ratio }})<br>
+                <em>{{ recommendation.explanation }}</em>
+            </li>
+        {% endfor %}
+    </ul>
     <script>
-        $(document).ready(function() {
-            $('#stock_symbol').on('input', function() {
+        $(document).ready(function(){
+            $("#stock_symbol").on("input", function() {
                 let query = $(this).val();
-                $.get('/autocomplete', { query: query }, function(data) {
-                    $('#suggestions').empty();
-                    data.forEach(function(item) {
-                        $('#suggestions').append('<option value="' + item + '">');
-                    });
+                $.get("/autocomplete", { query: query }, function(data) {
+                    // Implement autocomplete logic here
+                    console.log(data);
                 });
             });
         });
     </script>
-</head>
-<body>
-    <h1>Stock Analyzer</h1>
-    <form action="/search" method="POST">
-        <label for="stock_symbol">Stock Symbol:</label>
-        <input type="text" id="stock_symbol" name="stock_symbol" list="suggestions" autocomplete="off">
-        <datalist id="suggestions"></datalist>
-        <button type="submit">Analyze</button>
-    </form>
-
-    <h2>Recommendations</h2>
-    <ul>
-        {% for recommendation in recommendations %}
-            <li>{{ recommendation.ticker }}: {{ recommendation.recommendation }} (Sharpe Ratio: {{ recommendation.sharpe_ratio if recommendation.sharpe_ratio else "N/A" }})</li>
-        {% endfor %}
-    </ul>
 </body>
 </html>
