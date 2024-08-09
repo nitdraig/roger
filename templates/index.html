@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analyzer</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#stock_symbol').on('input', function() {
+                let query = $(this).val();
+                $.get('/autocomplete', { query: query }, function(data) {
+                    $('#suggestions').empty();
+                    data.forEach(function(item) {
+                        $('#suggestions').append('<option value="' + item + '">');
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Stock Analyzer</h1>
+    <form action="/search" method="POST">
+        <label for="stock_symbol">Stock Symbol:</label>
+        <input type="text" id="stock_symbol" name="stock_symbol" list="suggestions" autocomplete="off">
+        <datalist id="suggestions"></datalist>
+        <button type="submit">Analyze</button>
+    </form>
+
+    <h2>Recommendations</h2>
+    <ul>
+        {% for recommendation in recommendations %}
+            <li>{{ recommendation.ticker }}: {{ recommendation.recommendation }} (Sharpe Ratio: {{ recommendation.sharpe_ratio if recommendation.sharpe_ratio else "N/A" }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
