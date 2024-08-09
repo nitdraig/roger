@@ -3,36 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Analyzer</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#stock_symbol').on('input', function() {
-                let query = $(this).val();
-                $.get('/autocomplete', { query: query }, function(data) {
-                    $('#suggestions').empty();
-                    data.forEach(function(item) {
-                        $('#suggestions').append('<option value="' + item + '">');
-                    });
-                });
-            });
-        });
-    </script>
+    <title>Roger | Stock Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/public/favicon.ico') }}">
 </head>
 <body>
-    <h1>Stock Analyzer</h1>
-    <form action="/search" method="POST">
-        <label for="stock_symbol">Stock Symbol:</label>
-        <input type="text" id="stock_symbol" name="stock_symbol" list="suggestions" autocomplete="off">
-        <datalist id="suggestions"></datalist>
-        <button type="submit">Analyze</button>
-    </form>
+    <div class="container">
+        <h1>Roger  - Stock Analyzer</h1>
+        <input type="text" id="ticker-input" placeholder="Enter Stock Symbol or Name" oninput="fetchSuggestions()">
+        <div id="suggestions"></div>
+        <button onclick="analyzeStock()">Analyze</button>
+        <div id="result"></div>
+    </div>
+    
+    <script>
+        async function fetchSuggestions() {
+            const query = document.getElementById('ticker-input').value;
+            const response = await fetch(`/autocomplete?query=${query}`);
+            const suggestions = await response.json();
+            const suggestionsDiv = document.getElementById('suggestions');
+            suggestionsDiv.innerHTML = '';
 
-    <h2>Recommendations</h2>
-    <ul>
-        {% for recommendation in recommendations %}
-            <li>{{ recommendation.ticker }}: {{ recommendation.recommendation }} (Sharpe Ratio: {{ recommendation.sharpe_ratio if recommendation.sharpe_ratio else "N/A" }})</li>
-        {% endfor %}
-    </ul>
+            suggestions.forEach(suggestion => {
+                const suggestionItem = document.createElement('div');
+                suggestionItem.textContent = `${suggestion.name} (${suggestion.symbol})`;
+                suggestionItem.onclick = () => selectSuggestion(suggestion);
+                suggestionsDiv.appendChild(suggestionItem);
+            });
+        }
+
+        function selectSuggestion(suggestion) {
+            document.getElementById('ticker-input').value = suggestion.symbol;
+            document.getElementById('suggestions').innerHTML = '';
+        }
+
+        async function analyzeStock() {
+            const ticker = document.getElementById('ticker-input').value.toUpperCase();
+            const response = await fetch('/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ ticker }),
+            });
+            const result = await response.json();
+            if (result.error) {
+                document.getElementById('result').innerHTML = `<p>${result.error}</p>`;
+            } else {
+                document.getElementById('result').innerHTML = `
+                    <h2>${result.ticker}</h2>
+                    <p>Recommendation: ${result.recommendation}</p>
+                    <p>Sharpe Ratio: ${result.sharpe_ratio.toFixed(2)}</p>
+                    <p>Explanation: ${result.explanation}</p>
+                `;
+            }
+        }
+    </script>
 </body>
 </html>
