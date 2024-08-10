@@ -1,15 +1,32 @@
-input,
-button {
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  margin-top: 6em;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.input-container {
+  position: relative;
+}
+
+input[type="text"] {
   padding: 10px;
-  margin: 10px 0;
   width: 80%;
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin-bottom: 10px;
 }
 
 button {
+  padding: 10px 20px;
   background-color: #28a745;
   color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -18,25 +35,41 @@ button:hover {
 }
 
 #suggestions {
-  border: 1px solid #ccc;
-  max-height: 150px;
-  overflow-y: auto;
-  background-color: white;
   position: absolute;
+  top: 40px;
+  left: 10%;
+  width: 80%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  width: calc(80% + 20px);
-  width: 500px;
 }
 
 #suggestions div {
   padding: 10px;
   cursor: pointer;
-  width: 150px;
 }
 
 #suggestions div:hover {
   background-color: #f1f1f1;
 }
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  input[type="text"] {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+/* Sección CTA */
 .cta-section {
   background: #f1f1f1;
   color: #000000;
@@ -49,18 +82,12 @@ button:hover {
 
 .cta-section h2 {
   font-size: 2.5rem;
-
   margin-bottom: 20px;
 }
 
 .cta-section p {
   font-size: 1.25rem;
-
   margin-bottom: 20px;
-}
-
-.text-section {
-  margin-bottom: 2em;
 }
 
 .cta-button {
@@ -155,4 +182,83 @@ button:hover {
     width: 40px;
     height: 40px;
   }
+}
+
+/* Footer */
+footer {
+  background: #343945;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+footer p {
+  margin: 0;
+  font-size: 18px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #a434f3;
+}
+footer button {
+  background-color: #ccff8b;
+  width: 300px;
+  color: #000;
+  border-color: #fefefe;
+  transition: background-color 0.3s ease;
+}
+
+footer button:hover {
+  background-color: #a2fc2e;
+}
+
+.footer-credit {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #ddd;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 5px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

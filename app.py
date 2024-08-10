@@ -1,11 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 from stock_analysis import analyze_stock, get_stock_suggestions
-from dotenv import load_dotenv
+from config import Config
 import requests
 
-load_dotenv()
-
 app = Flask(__name__)
+app.config.from_object(Config)
 
 
 # Route for the Landing Page
@@ -42,7 +41,7 @@ def autocomplete():
 
 @app.route("/github-stars", methods=["GET"])
 def get_github_stars():
-    repo_url = "https://api.github.com/repos/nitdraig/roger"
+    repo_url = app.config["GITHUB_REPO"]
     response = requests.get(repo_url)
     if response.status_code == 200:
         repo_data = response.json()
