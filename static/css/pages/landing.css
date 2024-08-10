@@ -1,41 +1,54 @@
 .hero-section {
   background: #12141d;
   color: #fff;
-  padding: 100px 100px;
+  padding: 50px 20px;
   text-align: left;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .hero-content {
-  max-width: 60%;
+  max-width: 90%;
+  padding-top: 1em;
+  text-align: center;
 }
 
 .hero-content h1 {
-  font-size: 70px;
+  font-size: 50px;
   color: #fff;
-  font-weight: 400;
-  margin: 20px 0;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.hero-content h2 {
+  font-size: 30px;
+  color: #fff;
+  font-weight: 300;
+  margin: 10px 0;
 }
 
 .hero-content p {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: lighter;
-  margin: 20px 0;
-  padding-bottom: 1em;
+  margin: 15px 0;
 }
+
 .btn-container {
   display: flex;
-  gap: 2em;
+  gap: 1em;
+  flex-direction: column;
+  align-items: center;
 }
+
 .cta-button1 {
   background: #ccff8b;
   color: #000000;
-  padding: 1em 2.2em;
+  padding: 0.8em 1.8em;
+  font-size: 16px;
   border-radius: 5px;
-  font-size: 18px;
   transition: background 0.3s ease;
 }
 
@@ -46,21 +59,71 @@
 .cta-button2 {
   background: #ffffff;
   color: #000000;
-  padding: 1em 2.2em;
+  padding: 0.8em 1.8em;
+  font-size: 16px;
   border-radius: 5px;
-  font-size: 18px;
   transition: background 0.3s ease;
 }
 
-.cta-button2:hover {
-  background: #f0f0f0;
-}
-
 .hero-image {
-  max-width: 40%;
+  max-width: 80%;
+  margin-top: 20px;
   height: auto;
 }
-/* Styles for the Features Section */
+
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row;
+    padding: 80px 50px;
+  }
+
+  .hero-content {
+    max-width: 60%;
+    text-align: left;
+  }
+
+  .hero-content h1 {
+    font-size: 60px;
+  }
+
+  .hero-content h2 {
+    font-size: 34px;
+  }
+
+  .hero-content p {
+    font-size: 20px;
+  }
+
+  .btn-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .hero-image {
+    max-width: 40%;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    padding: 100px 100px;
+  }
+
+  .hero-content h1 {
+    font-size: 70px;
+  }
+
+  .hero-content h2 {
+    font-size: 38px;
+  }
+
+  .hero-image {
+    max-width: 40%;
+  }
+}
+
+/*  Features Section */
 .features-section {
   padding: 50px 20px;
   background-color: #fafafa;
@@ -108,13 +171,13 @@
 
 .feature-card h3 {
   font-size: 24px;
-  color: #1e90ff;
+  color: #12141d;
   margin-bottom: 10px;
 }
 
 .feature-card p {
   font-size: 16px;
-  color: #666;
+  color: #505050;
   line-height: 1.5;
 }
 
@@ -130,7 +193,7 @@
     margin-bottom: 20px;
   }
 }
-/* Styles for the How It Works Section */
+/*  How It Works Section */
 .how-it-works-section {
   padding: 50px 20px;
   background-color: #12141d;
@@ -173,7 +236,6 @@
 .title h3 {
   font-size: 18px;
   color: #ffffff;
-
   font-weight: 100;
 }
 
@@ -183,7 +245,7 @@
 
 .video-container h2 {
   font-size: 36px;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
@@ -194,26 +256,63 @@ video {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 1024px) {
+  .how-it-works-header {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+}
+
 @media (max-width: 768px) {
   .how-it-works-header {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .subtitle {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .subtitle h2 {
+    font-size: 36px;
   }
 
   .title {
-    margin-top: 20px;
     text-align: center;
+    margin-top: 20px;
   }
 
-  .steps-container {
-    flex-direction: column;
-    align-items: center;
+  .title h3 {
+    font-size: 16px;
   }
 
-  .step {
-    width: 90%;
-    max-width: 600px;
-    margin-bottom: 20px;
+  .video-container h2 {
+    font-size: 28px;
+  }
+
+  video {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .subtitle h2 {
+    font-size: 28px;
+  }
+
+  .title h3 {
+    font-size: 14px;
+  }
+
+  .video-container h2 {
+    font-size: 24px;
+  }
+
+  video {
+    max-width: 100%;
   }
 }

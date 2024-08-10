@@ -39,25 +39,30 @@ button:hover {
 }
 .cta-section {
   background: #f1f1f1;
-  height: 400px;
   color: #000000;
   text-align: center;
   padding: 50px 20px;
+  width: auto;
   position: relative;
+  height: auto;
 }
 
 .cta-section h2 {
-  font-size: 36px;
+  font-size: 2.5rem;
+
   margin-bottom: 20px;
 }
 
 .cta-section p {
-  font-size: 18px;
+  font-size: 1.25rem;
+
   margin-bottom: 20px;
 }
+
 .text-section {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
+
 .cta-button {
   background: #ccff8b;
   color: #000000;
@@ -71,11 +76,15 @@ button:hover {
   background: #b9ff5f;
 }
 
+.text-medias {
+  padding: 1em;
+}
+
 .social-links {
-  margin-top: 3em;
   display: flex;
   justify-content: center;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .social-links a {
@@ -91,4 +100,59 @@ button:hover {
 .social-icon:hover {
   width: 55px;
   height: 55px;
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 16px;
+    padding: 0.8em 1.8em;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icon:hover {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-section p {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    font-size: 14px;
+    padding: 0.6em 1.5em;
+  }
+
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .social-icon:hover {
+    width: 40px;
+    height: 40px;
+  }
 }

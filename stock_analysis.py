@@ -4,32 +4,33 @@ import os
 import pandas as pd
 import json
 
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 cached_sp500_stocks = {}
+
 
 def get_sp500_stocks():
     global cached_sp500_stocks
     if cached_sp500_stocks:
         return cached_sp500_stocks
-    
 
     url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
     sp500_table = pd.read_html(url)[0]
-    
+
     sp500_stocks = {}
     for _, row in sp500_table.iterrows():
-        ticker = row['Symbol']
-        company_name = row['Security']
+        ticker = row["Symbol"]
+        company_name = row["Security"]
         sp500_stocks[ticker] = company_name
-    
+
     cached_sp500_stocks = sp500_stocks
-    
+
     # Guardar en un archivo JSON (opcional)
     with open("sp500_stocks.json", "w") as f:
         json.dump(sp500_stocks, f)
-    
+
     return sp500_stocks
+
 
 def get_stock_suggestions(query):
     sp500_stocks = get_sp500_stocks()
@@ -42,6 +43,7 @@ def get_stock_suggestions(query):
 
     return suggestions
 
+
 def analyze_stock(ticker):
     stock = yf.Ticker(ticker)
     df = stock.history(period="1y")
@@ -49,21 +51,34 @@ def analyze_stock(ticker):
     if df.empty:
         return {"error": "No data available"}
 
-    df['Return'] = df['Close'].pct_change()
-    mean_return = df['Return'].mean() * 252
-    vol = df['Return'].std() * (252**0.5)
+    df["Return"] = df["Close"].pct_change()
+    mean_return = df["Return"].mean() * 252
+    vol = df["Return"].std() * (252**0.5)
     sharpe_ratio = mean_return / vol
 
-    recommendation = "Buy" if sharpe_ratio > 1 else "Sell" if sharpe_ratio < 0.5 else "Hold"
+    recommendation = (
+        "Buy" if sharpe_ratio > 1 else "Sell" if sharpe_ratio < 0.5 else "Hold"
+    )
 
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo", 
+        model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a financial advisor, skilled in explaining investment recommendations based on financial metrics. Give an answer in spanish"},
-            {"role": "user", "content": f"The stock {ticker} has a Sharpe Ratio of {sharpe_ratio:.2f}. Should it be bought, sold, or held? Explain why.Give an answer in spanish"},
+            {
+                "role": "system",
+                "content": "You are a financial advisor, skilled in explaining investment recommendations based on financial metrics. Give an answer in spanish",
+            },
+            {
+                "role": "user",
+                "content": f"The stock {ticker} has a Sharpe Ratio of {sharpe_ratio:.2f}. Should it be bought, sold, or held? Explain why.Give an answer in spanish",
+            },
         ],
-        max_tokens=100
+        max_tokens=100,
     )
-    explanation = response['choices'][0]['message']['content'].strip()
+    explanation = response["choices"][0]["message"]["content"].strip()
 
-    return {"ticker": ticker,"sharpe_ratio": sharpe_ratio, "recommendation": recommendation, "explanation": explanation}
+    return {
+        "ticker": ticker,
+        "sharpe_ratio": sharpe_ratio,
+        "recommendation": recommendation,
+        "explanation": explanation,
+    }

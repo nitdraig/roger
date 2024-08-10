@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from stock_analysis import analyze_stock, get_stock_suggestions
 from dotenv import load_dotenv
+import requests
 
 load_dotenv()
 
@@ -10,7 +11,8 @@ app = Flask(__name__)
 # Route for the Landing Page
 @app.route("/")
 def index():
-    return render_template("pages/landing.html")
+    stars = get_github_stars()
+    return render_template("pages/landing.html", stars=stars)
 
 
 # Route for the Analyzer Page
@@ -36,6 +38,18 @@ def autocomplete():
     query = request.args.get("query", "")
     suggestions = get_stock_suggestions(query)
     return jsonify(suggestions)
+
+
+@app.route("/github-stars", methods=["GET"])
+def get_github_stars():
+    repo_url = "https://api.github.com/repos/nitdraig/roger"
+    response = requests.get(repo_url)
+    if response.status_code == 200:
+        repo_data = response.json()
+        stars = repo_data.get("stargazers_count", 0)
+        return stars
+    else:
+        return 0
 
 
 if __name__ == "__main__":
