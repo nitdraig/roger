@@ -1,0 +1,93 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="hero-section">
+  <div class="hero-content">
+    <h1>Your Quick Stock Consultant</h1>
+    <p>
+      Make informed decisions on buying, selling, or holding S&P 500 stocks in
+      seconds.
+    </p>
+
+    <div class="btn-container">
+      <a href="{{ url_for('analyzer') }}" class="cta-button1">Get Started</a>
+      <a href="#features" class="cta-button2">Learn More</a>
+    </div>
+  </div>
+  <img
+    src="{{ url_for('static', filename='public/roger3.png') }}"
+    alt="Stock Analysis"
+    class="hero-image"
+  />
+</div>
+<section id="features" class="features-section">
+  <div class="features-header">
+    <h2>Features</h2>
+    <p>
+      Discover the key features that make ROGER your ultimate stock analysis
+      tool.
+    </p>
+  </div>
+  <div class="features-cards">
+    <div class="feature-card">
+      <img
+        src="{{ url_for('static', filename='/public/icons/speed.svg') }}"
+        alt="Real-Time Data"
+        class="card-icon"
+      />
+      <h3>Real-Time Data</h3>
+      <p>
+        Access the latest stock prices and metrics for companies in the S&P 500.
+      </p>
+    </div>
+    <div class="feature-card">
+      <img
+        src="{{ url_for('static', filename='/public/icons/ai.svg') }}"
+        alt="AI-Powered Recommendations"
+        class="card-icon"
+      />
+      <h3>AI-Powered Recommendations</h3>
+      <p>Receive buy, sell, or hold suggestions based on AI-driven analysis.</p>
+    </div>
+    <div class="feature-card">
+      <img
+        src="{{ url_for('static', filename='/public/icons/detailed.svg') }}"
+        alt="Detailed Explanations"
+        class="card-icon"
+      />
+      <h3>Detailed Explanations</h3>
+      <p>
+        Understand the reasoning behind each recommendation with clear
+        explanations.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="how-it-works" class="how-it-works-section">
+  <div class="how-it-works-header">
+    <div class="subtitle">
+      <h2>Fast, powered by AI, in real time, without costs</h2>
+    </div>
+    <div class="title">
+      <h3>
+        Seeking freedom of information, expression, access and strengthening
+        financial intelligence. Roger AI free, free and global
+      </h3>
+    </div>
+  </div>
+
+  <div class="video-container">
+    <h2>Watch How It Works</h2>
+    <video controls>
+      <source
+        src="{{ url_for('static', filename='videos/how-it-works.mp4') }}"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+{% include 'components/call_to_action.html' %} {% endblock %}

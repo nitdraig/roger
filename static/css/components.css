@@ -1,0 +1,94 @@
+input,
+button {
+  padding: 10px;
+  margin: 10px 0;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+#suggestions {
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: white;
+  position: absolute;
+  z-index: 1000;
+  width: calc(80% + 20px);
+  width: 500px;
+}
+
+#suggestions div {
+  padding: 10px;
+  cursor: pointer;
+  width: 150px;
+}
+
+#suggestions div:hover {
+  background-color: #f1f1f1;
+}
+.cta-section {
+  background: #f1f1f1;
+  height: 400px;
+  color: #000000;
+  text-align: center;
+  padding: 50px 20px;
+  position: relative;
+}
+
+.cta-section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.text-section {
+  margin-bottom: 3em;
+}
+.cta-button {
+  background: #ccff8b;
+  color: #000000;
+  padding: 1em 2.2em;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #b9ff5f;
+}
+
+.social-links {
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-links a {
+  display: inline-block;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  transition: opacity, width, height 0.3s ease;
+}
+
+.social-icon:hover {
+  width: 55px;
+  height: 55px;
+}

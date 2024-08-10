@@ -1,0 +1,219 @@
+.hero-section {
+  background: #12141d;
+  color: #fff;
+  padding: 100px 100px;
+  text-align: left;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-content {
+  max-width: 60%;
+}
+
+.hero-content h1 {
+  font-size: 70px;
+  color: #fff;
+  font-weight: 400;
+  margin: 20px 0;
+}
+
+.hero-content p {
+  font-size: 20px;
+  font-weight: lighter;
+  margin: 20px 0;
+  padding-bottom: 1em;
+}
+.btn-container {
+  display: flex;
+  gap: 2em;
+}
+.cta-button1 {
+  background: #ccff8b;
+  color: #000000;
+  padding: 1em 2.2em;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background 0.3s ease;
+}
+
+.cta-button1:hover {
+  background: #b9ff5f;
+}
+
+.cta-button2 {
+  background: #ffffff;
+  color: #000000;
+  padding: 1em 2.2em;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background 0.3s ease;
+}
+
+.cta-button2:hover {
+  background: #f0f0f0;
+}
+
+.hero-image {
+  max-width: 40%;
+  height: auto;
+}
+/* Styles for the Features Section */
+.features-section {
+  padding: 50px 20px;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.features-header {
+  margin-bottom: 30px;
+}
+
+.features-header h2 {
+  font-size: 36px;
+  color: #333;
+  font-weight: bold;
+}
+
+.features-header p {
+  font-size: 18px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.features-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 350px;
+  box-sizing: border-box;
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 24px;
+  color: #1e90ff;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .features-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+}
+/* Styles for the How It Works Section */
+.how-it-works-section {
+  padding: 50px 20px;
+  background-color: #12141d;
+  text-align: center;
+}
+
+.how-it-works-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-left: 4em;
+  margin-right: 4em;
+}
+
+.subtitle {
+  flex: 1;
+  text-align: left;
+  font-size: 18px;
+}
+
+.subtitle h2 {
+  font-size: 52px;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subtitle p {
+  font-size: 18px;
+  color: #ffffff;
+  margin-top: 0;
+}
+
+.title {
+  flex: 1;
+  text-align: right;
+}
+
+.title h3 {
+  font-size: 18px;
+  color: #ffffff;
+
+  font-weight: 100;
+}
+
+.video-container {
+  margin-top: 40px;
+}
+
+.video-container h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+video {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .how-it-works-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .title {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .steps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step {
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+}

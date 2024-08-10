@@ -1,0 +1,55 @@
+<section id="cta" class="cta-section">
+  <div class="text-section">
+    <h2>Ready to Make Smarter Investments?</h2>
+    <p>Join ROGER today and start making informed stock decisions with ease.</p>
+  </div>
+  <a href="{{ url_for('analyzer') }}" class="cta-button">Analyze Now</a>
+
+  <!-- Social Media Links with SVG Icons -->
+  <div class="social-links">
+    <a
+      href="https://github.com/nitdraig/roger"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="{{ url_for('static', filename='public/icons/github.svg') }}"
+        alt="GitHub"
+        class="social-icon"
+      />
+    </a>
+    <a
+      href="https://portfolio.agustin.top/contact"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="{{ url_for('static', filename='public/icons/message.svg') }}"
+        alt="Portfolio"
+        class="social-icon"
+      />
+    </a>
+    <a
+      href="https://twitter.com/nitdraig"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="{{ url_for('static', filename='public/icons/twitter.svg') }}"
+        alt="Donate"
+        class="social-icon"
+      />
+    </a>
+    <a
+      href="https://buymeacoffee.com/nitdraig"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="{{ url_for('static', filename='public/icons/donate.svg') }}"
+        alt="Donate"
+        class="social-icon"
+      />
+    </a>
+  </div>
+</section>

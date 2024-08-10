@@ -6,24 +6,37 @@ load_dotenv()
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
 
-@app.route('/analyze', methods=['POST'])
+# Route for the Landing Page
+@app.route("/")
+def index():
+    return render_template("pages/landing.html")
+
+
+# Route for the Analyzer Page
+@app.route("/analyzer")
+def analyzer():
+    return render_template("pages/analyzer.html")
+
+
+# Route for analyzing a stock
+@app.route("/analyze", methods=["POST"])
 def analyze():
-    ticker = request.json.get('ticker')
+    ticker = request.json.get("ticker")
     if not ticker:
         return jsonify({"error": "Ticker not provided"}), 400
 
     result = analyze_stock(ticker)
     return jsonify(result)
 
-@app.route('/autocomplete', methods=['GET'])
+
+# Route for autocomplete suggestions
+@app.route("/autocomplete", methods=["GET"])
 def autocomplete():
-    query = request.args.get('query', '')
+    query = request.args.get("query", "")
     suggestions = get_stock_suggestions(query)
     return jsonify(suggestions)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True)
