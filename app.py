@@ -46,7 +46,7 @@ def autocomplete():
 
 @app.route("/github-stars", methods=["GET"])
 def get_github_stars():
-    repo_url = app.config["GITHUB_REPO"]
+    repo_url = "https://api.github.com/repos/nitdraig/roger"
     response = requests.get(repo_url)
     if response.status_code == 200:
         repo_data = response.json()
