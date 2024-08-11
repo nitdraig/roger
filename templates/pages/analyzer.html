@@ -35,10 +35,32 @@
         />
         <div id="suggestions"></div>
       </div>
-      <button onclick="analyzeStock()">Analyze</button>
+      <div class="btn-container">
+        <button class="btn-1" onclick="analyzeStock()">Analyze</button>
+
+        <button class="btn-2" id="open-sharpe-ratio">
+          What is Sharpe Ratio?
+        </button>
+      </div>
+      <div id="spinner" class="spinner" style="display: none"></div>
       <div id="result"></div>
+      <div id="sharpe-ratio-modal" class="modal">
+        <div class="modal-content">
+          <span id="close-sharpe-ratio" class="close">&times;</span>
+          <h2>What is Sharpe Ratio?</h2>
+          <p>
+            The Sharpe Ratio is a risk-adjusted performance measure, which
+            calculates the additional profitability obtained per unit of risk.
+            It is defined as the difference between the performance of a
+            investment and the risk-free rate, divided by the deviation
+            profitability standard. A higher Sharpe Ratio indicates a better
+            risk-adjusted performance.
+          </p>
+        </div>
+      </div>
     </div>
 
     <script src="{{ url_for('static', filename='js/stock_analyzer.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modalAnalyzer.js') }}"></script>
   </body>
 </html>

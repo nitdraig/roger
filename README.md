@@ -12,32 +12,36 @@ ROGER is a fast and efficient stock consultant designed to help you make informe
 ## Installation
 
 1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/nitdraig/roger.git
-    cd roger
-    ```
+
+   ```bash
+   git clone https://github.com/nitdraig/roger.git
+   cd roger
+   ```
 
 2. **Create a virtual environment** (optional but recommended):
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
-    ```
+
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
 3. **Install dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ```
+
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 4. **Set up environment variables**:
-    Create a `.env` file in the root directory and add your API keys:
-    ```
-    OPENAI_API_KEY=your_openai_api_key
-    ```
+   Create a `.env` file in the root directory and add your API keys:
+
+   ```
+   OPENAI_API_KEY=your_openai_api_key
+   ```
 
 5. **Run the application**:
-    ```bash
-    python app.py
-    ```
+   ```bash
+   python app.py
+   ```
 
 ## Usage
 
@@ -64,9 +68,8 @@ ROGER is a fast and efficient stock consultant designed to help you make informe
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPL v3.0 - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
-For any questions or suggestions, please feel free to reach out at [your email address].
-
+For any questions or suggestions, please feel free to reach out at agustind@duck.com

@@ -24,11 +24,16 @@ def analyzer():
 @app.route("/analyze", methods=["POST"])
 def analyze():
     ticker = request.json.get("ticker")
-    if not ticker:
-        return jsonify({"error": "Ticker not provided"}), 400
+    if not ticker or not isinstance(ticker, str) or len(ticker) < 1:
+        return jsonify({"error": "Invalid ticker provided"}), 400
 
-    result = analyze_stock(ticker)
-    return jsonify(result)
+    try:
+        result = analyze_stock(ticker)
+        if not result:
+            return jsonify({"error": "Unable to analyze stock"}), 500
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 # Route for autocomplete suggestions

@@ -20,20 +20,42 @@ input[type="text"] {
   border-radius: 4px;
   margin-bottom: 10px;
 }
-
-button {
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
+.btn-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.btn-1,
+.btn-2 {
+  margin: 0.5em 0;
+}
+.btn-1 {
+  background: #ccff8b;
+  color: #000000;
+  padding: 0.8em 1.8em;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #218838;
+.btn-1:hover {
+  background-color: #ffffff;
+}
+.btn-2 {
+  background: transparent;
+  color: #000000;
+  border: none;
+  font-size: 16px;
+
+  transition: background 0.3s ease;
+  cursor: pointer;
 }
 
+.btn-2:hover {
+  color: #98d14e;
+}
 #suggestions {
   position: absolute;
   top: 40px;

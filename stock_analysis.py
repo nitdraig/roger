@@ -25,7 +25,6 @@ def get_sp500_stocks():
 
     cached_sp500_stocks = sp500_stocks
 
-    # Guardar en un archivo JSON (opcional)
     with open("sp500_stocks.json", "w") as f:
         json.dump(sp500_stocks, f)
 
@@ -65,11 +64,11 @@ def analyze_stock(ticker):
         messages=[
             {
                 "role": "system",
-                "content": "You are a financial advisor, skilled in explaining investment recommendations based on financial metrics. Give an answer in spanish",
+                "content": "You are a financial advisor, skilled in explaining investment recommendations based on financial metrics.",
             },
             {
                 "role": "user",
-                "content": f"The stock {ticker} has a Sharpe Ratio of {sharpe_ratio:.2f}. Should it be bought, sold, or held? Explain why.Give an answer in spanish",
+                "content": f"The stock {ticker} has a Sharpe Ratio of {sharpe_ratio:.2f}. Should it be bought, sold, or held? Explain why. Not more than 100 words.",
             },
         ],
         max_tokens=100,

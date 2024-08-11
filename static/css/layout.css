@@ -37,7 +37,11 @@ nav ul {
   list-style: none;
   gap: 20px;
 }
-
+#result {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .button-rog {
   background: #ccff8b;
   color: #000000;
@@ -140,4 +144,22 @@ footer button:hover {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #ccff8b;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
