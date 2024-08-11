@@ -20,7 +20,7 @@ input[type="text"] {
   border-radius: 4px;
   margin-bottom: 10px;
 }
-.btn-container {
+.btn-container-hero {
   display: flex;
   align-items: center;
   flex-direction: column;
