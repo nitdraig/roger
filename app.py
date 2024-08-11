@@ -2,6 +2,13 @@ from flask import Flask, render_template, request, jsonify
 from stock_analysis import analyze_stock, get_stock_suggestions
 from config import Config
 import requests
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -47,7 +54,9 @@ def autocomplete():
 @app.route("/github-stars", methods=["GET"])
 def get_github_stars():
     repo_url = "https://api.github.com/repos/nitdraig/roger"
-    response = requests.get(repo_url)
+    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    response = requests.get(repo_url, headers=headers)
+    print(f"GitHub API Status: {response.status_code}")
     if response.status_code == 200:
         repo_data = response.json()
         stars = repo_data.get("stargazers_count", 0)

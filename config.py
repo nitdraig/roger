@@ -9,6 +9,7 @@ class Config:
     GITHUB_REPO = os.getenv(
         "GITHUB_REPO", "https://api.github.com/repos/nitdraig/roger"
     )
+    GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 
 config = Config()
