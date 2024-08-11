@@ -5,3 +5,5 @@ matplotlib
 yfinance
 python-dotenv
 openai==0.28
+fastapi 
+uvicorn
