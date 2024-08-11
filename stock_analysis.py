@@ -3,8 +3,13 @@ import openai
 import os
 import pandas as pd
 import json
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
+
 
 cached_sp500_stocks = {}
 
