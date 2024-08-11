@@ -36,10 +36,10 @@
   margin: 15px 0;
 }
 
-.btn-container {
+.btn-container-hero {
   display: flex;
   gap: 1em;
-  flex-direction: column;
+
   align-items: center;
 }
 
