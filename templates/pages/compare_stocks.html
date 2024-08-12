@@ -24,18 +24,54 @@
   </head>
   <body>
     {% include 'components/header.html' %} {% include
-    'components/navigation_buttons.html' %}
+    'components/navigation_buttons.html' %} {% block content %}{% endblock %}
 
     <div class="container">
       <h2>Stock Comparison</h2>
       <div class="input-container">
-        <input type="text" id="ticker-input-1" placeholder="Stock Symbol 1" />
-        <input type="text" id="ticker-input-2" placeholder="Stock Symbol 2" />
-        <button class="btn-1" onclick="compareStocks()">Compare</button>
+        <input
+          type="text"
+          id="ticker-input-1"
+          placeholder="Stock Symbol 1"
+          onkeyup="showSuggestions(this, 'suggestions-1')"
+        />
+        <div id="suggestions-1" class="suggestions"></div>
+        <input
+          type="text"
+          id="ticker-input-2"
+          placeholder="Stock Symbol 2"
+          onkeyup="showSuggestions(this, 'suggestions-2')"
+        />
+        <div id="suggestions-2" class="suggestions"></div>
+        <div class="btn-container">
+          <button class="btn-2" id="open-sharpe-ratio">
+            What is Stock comparison?
+          </button>
+          <button class="btn-1" onclick="compareStocks()">Compare</button>
+        </div>
       </div>
-      <div id="comparison-result"></div>
+      <div>
+        <div id="spinner" class="spinner" style="display: none"></div>
+        <div id="comparison-result"></div>
+        <div id="sharpe-ratio-modal" class="modal">
+          <div class="modal-content">
+            <span id="close-sharpe-ratio" class="close">&times;</span>
+            <h2>What is Stock comparison?</h2>
+            <p>
+              Stock comparison in ROGER allows you to evaluate two different S&P
+              500 stocks. You just need to enter the symbols of the two stocks
+              you want to compare, and our tool will show you an analysis of
+              each one. Additionally, you will receive a recommendation based on
+              financial data on which stock might be best to buy, sell or
+              maintain. It's a quick and easy way to make informed decisions
+              about your investments!
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="{{ url_for('static', filename='js/comparison.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modalAnalyzer.js') }}"></script>
   </body>
 </html>
