@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investment Calculator | Roger</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/components.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/layout.css') }}"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='/public/favicon.ico') }}"
+    />
+  </head>
+  <body>
+    {% include 'components/header.html' %} {% include
+    'components/navigation_buttons.html' %} {% block content %}{% endblock %}
+    <div class="container">
+      <h2>Investment Calculator</h2>
+      <div class="input-container-calculator">
+        <form method="POST">
+          <label for="initial-investment">Initial Investment ($):</label>
+          <input
+            type="number"
+            id="initial-investment"
+            name="initial-investment"
+            required
+          /><br /><br />
+
+          <label for="interest-rate">Annual Interest Rate (%):</label>
+          <input
+            type="number"
+            id="interest-rate"
+            name="interest-rate"
+            step="0.01"
+            required
+          /><br /><br />
+
+          <label for="years">Number of Years:</label>
+          <input type="number" id="years" name="years" required /><br /><br />
+          <div class="btn-container">
+            <button class="btn-2" type="button" id="open-sharpe-ratio">
+              What is the Investment Calculator?
+            </button>
+            <button class="btn-1" type="submit">Calculate</button>
+          </div>
+        </form>
+
+        {% if future_value %}
+        <h2>Future Value: ${{ future_value }}</h2>
+        {% endif %}
+      </div>
+    </div>
+    <div id="sharpe-ratio-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-sharpe-ratio" class="close">&times;</span>
+        <h2>What is the Investment Calculator?</h2>
+        <p>
+          The Investment Calculator helps you estimate the return on your
+          investments. This is how it works: You enter your Initial Investment:
+          You enter how much money you plan to invest at the beginning. You Set
+          the Investment Time: You indicate how long you plan to keep your
+          investment. Choose the Expected Rate of Return: You select a rate of
+          return, which is the percentage you expect to earn on your investment.
+          Get the Result: The calculator will show you how much your investment
+          could grow over time, based on the data you entered. Simply put, it
+          helps you see how your money could grow over time, helping you better
+          plan your investments.
+        </p>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/modalAnalyzer.js') }}"></script>
+  </body>
+</html>

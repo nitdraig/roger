@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Roger | Stock Analyzer</title>
+    <title>Stock Analyzer | Roger</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/base.css') }}"
@@ -23,9 +23,11 @@
     />
   </head>
   <body>
-    {% include 'components/header.html' %}
+    {% include 'components/header.html' %} {% include
+    'components/navigation_buttons.html' %} {% block content %}{% endblock %}
+
     <div class="container">
-      <h1>Roger | Stock Analyzer</h1>
+      <h2>Stock Analyzer</h2>
       <div class="input-container">
         <input
           type="text"
@@ -37,11 +39,12 @@
       </div>
       <div class="btn-container">
         <button class="btn-1" onclick="analyzeStock()">Analyze</button>
-
         <button class="btn-2" id="open-sharpe-ratio">
           What is Sharpe Ratio?
         </button>
       </div>
+    </div>
+    <div>
       <div id="spinner" class="spinner" style="display: none"></div>
       <div id="result"></div>
       <div id="sharpe-ratio-modal" class="modal">

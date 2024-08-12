@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Comparison | Roger</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/components.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/layout.css') }}"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='/public/favicon.ico') }}"
+    />
+  </head>
+  <body>
+    {% include 'components/header.html' %} {% include
+    'components/navigation_buttons.html' %}
+
+    <div class="container">
+      <h2>Stock Comparison</h2>
+      <div class="input-container">
+        <input type="text" id="ticker-input-1" placeholder="Stock Symbol 1" />
+        <input type="text" id="ticker-input-2" placeholder="Stock Symbol 2" />
+        <button class="btn-1" onclick="compareStocks()">Compare</button>
+      </div>
+      <div id="comparison-result"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/comparison.js') }}"></script>
+  </body>
+</html>

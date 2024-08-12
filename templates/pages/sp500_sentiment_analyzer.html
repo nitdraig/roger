@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S&P 500 Sentiment Analyzer | Roger</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/components.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/layout.css') }}"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='/public/favicon.ico') }}"
+    />
+  </head>
+  <body>
+    {% include 'components/header.html' %} {% include
+    'components/navigation_buttons.html' %}
+
+    <div class="container">
+      <h2>S&P 500 Sentiment Analyzer</h2>
+      <div class="btn-container">
+        <button class="btn-2" type="button" id="open-sharpe-ratio">
+          S&P 500 Sentiment Analysis?
+        </button>
+        <button class="btn-1" onclick="fetchSentiment()">Get Sentiment</button>
+      </div>
+      <div id="result"></div>
+    </div>
+    <div id="sharpe-ratio-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-sharpe-ratio" class="close">&times;</span>
+        <h2>S&P 500 Sentiment Analysis?</h2>
+        <p>
+          This analysis helps you understand how the market feels about the S&P
+          500 index, based on the latest news. Here's what you need to know:
+          Average Sentiment Score: This is a number that tells us whether the
+          news is generally positive or negative about the S&P 500. A high
+          number means the news is positive. , and a low number means they are
+          negative. Sentiment: Tells you if the general sentiment is positive,
+          negative or neutral, based on all the news analyzed. Total Number of
+          Articles: Shows how many news items have been reviewed to calculate
+          sentiment. In summary, This analysis gives you a quick view of how the
+          market is doing based on the latest news, without you having to read
+          all the news yourself.
+        </p>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/sp500_sentiment_analyzer.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modalAnalyzer.js') }}"></script>
+  </body>
+</html>
