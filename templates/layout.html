@@ -3,6 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ROGER - Analyze and compare S&P 500 stocks, calculate investments, and get sentiment analysis."
+    />
+    <meta
+      name="keywords"
+      content="Stock Analysis, S&P 500, Investment Calculator, Sentiment Analysis, Compare Stocks, Financial Tools"
+    />
+    <meta name="author" content="Agustín Avellaneda" />
+
+    <!-- Open Graph Meta Tags (For Social Media Sharing) -->
+    <meta
+      property="og:title"
+      content="ROGER - Your S&P 500 Stock Analysis Tool"
+    />
+    <meta
+      property="og:description"
+      content="Analyze and compare S&P 500 stocks, calculate investments, and get sentiment analysis with ROGER."
+    />
+    <meta
+      property="og:image"
+      content="{{ url_for('static', filename='images/og-image.png') }}"
+    />
+    <meta property="og:url" content="{{ request.url }}" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="ROGER - Your S&P 500 Stock Analysis Tool"
+    />
+    <meta
+      name="twitter:description"
+      content="Analyze and compare S&P 500 stocks, calculate investments, and get sentiment analysis with ROGER."
+    />
+    <meta
+      name="twitter:image"
+      content="{{ url_for('static', filename='images/twitter-card.png') }}"
+    />
+    <link rel="canonical" href="{{ request.url }}" />
     <title>Roger | Your Stock Consultant</title>
     <link
       rel="icon"
