@@ -9,43 +9,9 @@ ROGER is a fast and efficient stock consultant designed to help you make informe
 - **Autocomplete Search**: Quickly find the stock you're interested in by typing the company name or ticker symbol.
 - **Detailed Explanations**: Understand the reasoning behind each recommendation with AI-generated explanations.
 
-## Installation
-
-1. **Clone the repository**:
-
-   ```bash
-   git clone https://github.com/nitdraig/roger.git
-   cd roger
-   ```
-
-2. **Create a virtual environment** (optional but recommended):
-
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Set up environment variables**:
-   Create a `.env` file in the root directory and add your API keys:
-
-   ```
-   OPENAI_API_KEY=your_openai_api_key
-   ```
-
-5. **Run the application**:
-   ```bash
-   python app.py
-   ```
-
 ## Usage
 
-1. Open your web browser and navigate to `http://127.0.0.1:5000/`.
+1. Open your web browser and navigate to `https://roger.agustin.top`.
 2. Start typing the name or ticker symbol of an S&P 500 company in the search box.
 3. Select the stock from the autocomplete suggestions.
 4. View the recommendation (Buy, Sell, Hold) along with a brief explanation.
@@ -62,7 +28,7 @@ ROGER is a fast and efficient stock consultant designed to help you make informe
 
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
+3. Commit your changes (`git commit -m 'Add: some feature'`).
 4. Push to the branch (`git push origin feature-branch`).
 5. Create a pull request.
 
