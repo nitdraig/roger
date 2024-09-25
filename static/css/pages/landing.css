@@ -249,9 +249,10 @@
   margin-bottom: 20px;
 }
 
-video {
+iframe {
   width: 100%;
   max-width: 800px;
+  height: 400px;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -294,8 +295,9 @@ video {
     font-size: 28px;
   }
 
-  video {
+  iframe {
     max-width: 90%;
+    max-height: 90%;
   }
 }
 
@@ -312,7 +314,8 @@ video {
     font-size: 24px;
   }
 
-  video {
+  iframe {
+    max-height: 90%;
     max-width: 100%;
   }
 }
