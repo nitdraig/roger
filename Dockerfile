@@ -1,13 +1,18 @@
-FROM python:3.11-slim
+# Etapa de construcción
+FROM python:3.9-slim
 
+# Establecer el directorio de trabajo
 WORKDIR /app
 
-COPY requirements.txt .
-
-RUN pip install --no-cache-dir -r requirements.txt
-
+# Copiar los archivos de requerimientos y el código fuente
+COPY requirements.txt requirements.txt
 COPY . .
 
+# Instalar las dependencias
+RUN pip install -r requirements.txt
+
+# Exponer el puerto que la aplicación utilizará
 EXPOSE 5000
 
-CMD ["flask", "run", "--host=0.0.0.0"]
+# Comando para ejecutar la aplicación
+CMD ["python", "app.py"]
